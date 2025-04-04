@@ -36,6 +36,22 @@ void mostrarMasVieja(Compu pcs[], int cantidad) {
     printf("\n\n");
 }
 
+void mostrarMasVeloz(Compu pcs[], int cantidad) {
+    int veloz = 0, index = 0;
+    for (int i = 0; i < cantidad; i++) {
+        if (pcs[i].velocidad > veloz) {
+            veloz = pcs[i].velocidad;
+            index = i;
+        }
+    }
+    printf("Computadora mas rapida(%d): \n\n", index + 1);
+    printf("Velocidad: %d \n", pcs[index].velocidad);
+    printf("Año de fabricacion: %d \n", pcs[index].anio);
+    printf("Cant. de nucleos: %d \n", pcs[index].cantidad_nucleos);
+    printf("Procesador: %s \n", pcs[index].tipo_cpu);
+    printf("\n\n");
+}
+
 int main() {
     srand(time(NULL));
     char tipos[6][10] = {
@@ -55,5 +71,6 @@ int main() {
     }
     listarPCs(computadoras, 5);
     mostrarMasVieja(computadoras, 5);
+    mostrarMasVeloz(computadoras, 5);
     return 0;
 }
